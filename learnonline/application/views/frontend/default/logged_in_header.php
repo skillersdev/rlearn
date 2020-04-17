@@ -39,6 +39,12 @@ $user_details = $this->user_model->get_user($this->session->userdata('user_id'))
                             </div>
                         </div>
                     <?php endif; ?>
+					
+					
+					
+					
+
+					
 
                     <div class="instructor-box menu-icon-box">
                         <div class="icon">

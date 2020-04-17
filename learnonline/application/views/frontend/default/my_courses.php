@@ -14,18 +14,52 @@ foreach ($my_courses as $my_course) {
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1 class="page-title"><?php echo get_phrase('my_courses'); ?></h1>
+                <h1 class="page-title">
+					<?php echo get_phrase('my_courses'); ?>  
+					<?php //if (get_settings('allow_instructor') == 1 && ($user_details['user_type']==0) ): ?>
+						<!--<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-warning"><?php //echo get_phrase('becameinstructor'); ?></button>-->
+					<?php //endif; ?>
+					</h1>
                 <ul>
                   <li class="active"><a href="<?php echo site_url('home/my_courses'); ?>"><?php echo get_phrase('all_courses'); ?></a></li>
                   <li><a href="<?php echo site_url('home/my_wishlist'); ?>"><?php echo get_phrase('wishlists'); ?></a></li>
                   <!--<li><a href="<?php //echo site_url('home/my_messages'); ?>"><?php //echo get_phrase('my_messages'); ?></a></li>-->
                   <li><a href="<?php echo site_url('home/purchase_history'); ?>"><?php echo get_phrase('purchase_history'); ?></a></li>
                   <li><a href="<?php echo site_url('home/profile/user_profile'); ?>"><?php echo get_phrase('user_profile'); ?></a></li>
+				 
                 </ul>
             </div>
         </div>
     </div>
+	
+	<!-- Became Instructor Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content"style="color:black">
+			<div class="modal-header">
+				<h4 class="modal-title"><?php echo get_phrase('becameinstructor'); ?></h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			
+			<div class="modal-body">
+				<span class="small">Became a Instructor and Start Create Online Course</span>
+				
+				
+				<p>Some text in the modal.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	  </div>
+	</div>
+	<!-- Became Instructor Modal -->
+					
 </section>
+
 
 <section class="my-courses-area">
     <div class="container">
