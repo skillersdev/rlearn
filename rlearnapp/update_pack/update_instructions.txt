@@ -1,0 +1,18 @@
+Please follow the instructions carefully.
+
+"N.B : BEFORE UPDATING TO THE LATEST VERSION, WE WOULD HIGHLY APPRECIATE IF YOU KEEP A BACKUP OF THE EXISTING VERSION."
+
+Let's proceed,
+- Go to system settings from settings menu in admin panel
+- Move to the section 'Update Product' on that page
+- Upload the file 'update_4.0.1.zip' which is located at "update_pack" folder inside your copy of Academy app downloaded from Codecanyon
+- Hit the button 'Update'.
+- That's it
+
+****REPLACING THE STRIPE LIBRARY****
+- If you have done this without any issue facing, now its time to replace the existing Stripe library with the latest one.
+- Open the "update_pack" folder and copy the "Stripe" folder.
+- Replace it with the existig "Stripe" folder. Which is located at "application/libraries/Stripe"
+
+PLEASE MAKE SURE THAT YOU ARE RUNNING THE 4.0 VERSION BEFORE UPDATING TO 4.0.1
+IF YOU ARE ALREADY RUNNING THE 4.0.1 VERSION THERE IS NO NEED TO UPDATE… Thank You
