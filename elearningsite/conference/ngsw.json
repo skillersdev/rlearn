@@ -1,0 +1,55 @@
+{
+  "configVersion": 1,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/index.html"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/images/logo.png",
+        "/assets/images/videochat-icon.png",
+        "/assets/scripts/VidyoClientLoad.js",
+        "/assets/scripts/bootstrap.min.js",
+        "/assets/scripts/jquery-3.3.1.slim.min.js"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/images/logo.png": "2765066cf5e96c3861e7d22358448ee5e76fcd6b",
+    "/assets/images/videochat-icon.png": "c5392f24df04f1e4a5cb966e17283a35b6096fac",
+    "/assets/scripts/VidyoClientLoad.js": "c77ccec5babc1f07ffaf9bbf2b15ad757b9da580",
+    "/assets/scripts/bootstrap.min.js": "75a42212affc118fef849aba4b9326a7da2acda1",
+    "/assets/scripts/jquery-3.3.1.slim.min.js": "bc5836992c0b260496ba520fe1336d499bf06eb7",
+    "/index.html": "2768e0b1ee8ca0df34a0533b4cc01818d503048b"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
