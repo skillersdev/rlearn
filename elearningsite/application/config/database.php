@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 // $db['default'] = array(
 // 	'dsn'	=> '',
-// 	  'hostname' => 'localhost',
+// 	'hostname' => 'localhost',
 // 	'username' => 'thrabcse_3abc7',
 // 	'password' => '3abc7123!@#!@#',
 // 	'database' => 'thrabcse_new',
@@ -103,7 +103,7 @@ $db['default'] = array(
 	'password' => '',
 	'database' => 'thrabcse_new',
 	'dbdriver' => 'mysqli',
-	'dbprefix' => '',
+	'dbprefix' => 'elearn_',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
