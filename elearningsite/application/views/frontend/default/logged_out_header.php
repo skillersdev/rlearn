@@ -37,9 +37,10 @@
           <span class="signin-box-move-desktop-helper"></span>
           <div class="sign-in-box btn-group">
 
-            <a href="<?php echo site_url('home/login'); ?>" class="btn btn-sign-in"><?php echo site_phrase('log_in'); ?></a>
+            <a href="<?php echo site_url('home/login'); ?>" class="btn btn-sign-in"><?php echo site_phrase('students')." ".site_phrase('login'); ?></a>
 
-           
+            <a href="<?php echo site_url('home/Instructorlogin'); ?>" class="btn btn-sign-in"><?php echo site_phrase('instructors')." ".site_phrase('login'); ?></a>
+
           </div> <!--  sign-in-box end -->
         </nav>
       </div>

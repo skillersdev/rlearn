@@ -27,10 +27,10 @@
               <div class="user-dashboard-box mt-3">
                   <div class="user-dashboard-content w-100 login-form">
                       <div class="content-title-box">
-                          <div class="title"><?php echo site_phrase('students')." ".site_phrase('login'); ?></div>
+                          <div class="title"><?php echo site_phrase('instructors')." ".site_phrase('login'); ?></div>
                           <div class="subtitle"><?php echo site_phrase('provide_your_valid_login_credentials'); ?>.</div>
                       </div>
-                      <form action="<?php echo site_url('login/validate_login/user'); ?>" method="post">
+                      <form action="<?php echo site_url('login/instructor_validate_login/user'); ?>" method="post">
                           <div class="content-box">
                               <div class="basic-group">
                                   <div class="form-group">
@@ -50,7 +50,7 @@
                          
                       </form>
                   </div>
-                  <div class="user-dashboard-content w-100 register-form hidden">
+                  <!-- <div class="user-dashboard-content w-100 register-form hidden">
                       <div class="content-title-box">
                           <div class="title"><?php echo site_phrase('registration_form'); ?></div>
                           <div class="subtitle"><?php echo site_phrase('sign_up_and_start_learning'); ?>.</div>
@@ -108,6 +108,8 @@
                           </div>
                       </form>
                   </div>
+
+                   -->
               </div>
             </div>
         </div>

@@ -708,7 +708,18 @@ class Home extends CI_Controller {
             redirect(site_url('user'), 'refresh');
         }
         $page_data['page_name'] = 'login';
-        $page_data['page_title'] = site_phrase('login');
+        $page_data['page_title'] = site_phrase('students')." ".site_phrase('login');
+        $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
+    }
+
+    public function Instructorlogin() {
+        if ($this->session->userdata('admin_login')) {
+            redirect(site_url('admin'), 'refresh');
+        }elseif ($this->session->userdata('user_login')) {
+            redirect(site_url('user'), 'refresh');
+        }
+        $page_data['page_name'] = 'instructor_login';
+        $page_data['page_title'] = site_phrase('instructors')." ". site_phrase('login');
         $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
     }
 

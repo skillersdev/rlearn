@@ -34,22 +34,74 @@ class Login extends CI_Controller {
 
         if ($query->num_rows() > 0) {
             $row = $query->row();
-            $this->session->set_userdata('user_id', $row->id);
-            $this->session->set_userdata('role_id', $row->role_id);
-            $this->session->set_userdata('role', get_user_role('user_role', $row->id));
-            $this->session->set_userdata('name', $row->first_name.' '.$row->last_name);
-            $this->session->set_userdata('is_instructor', $row->is_instructor);
-            $this->session->set_flashdata('flash_message', get_phrase('welcome').' '.$row->first_name.' '.$row->last_name);
+            
             if ($row->role_id == 1) {
                 $this->session->set_userdata('admin_login', '1');
+                $this->session->set_userdata('user_id', $row->id);
+                $this->session->set_userdata('role_id', $row->role_id);
+                $this->session->set_userdata('role', get_user_role('user_role', $row->id));
+                $this->session->set_userdata('name', $row->first_name.' '.$row->last_name);
+                $this->session->set_userdata('is_instructor', $row->is_instructor);
+                $this->session->set_flashdata('flash_message', get_phrase('welcome').' '.$row->first_name.' '.$row->last_name);
                 redirect(site_url('admin/dashboard'), 'refresh');
-            }else if($row->role_id == 2){
+            }else if($row->role_id == 2 && $row->user_type==0){
                 $this->session->set_userdata('user_login', '1');
+                $this->session->set_userdata('user_id', $row->id);
+                $this->session->set_userdata('role_id', $row->role_id);
+                $this->session->set_userdata('role', get_user_role('user_role', $row->id));
+                $this->session->set_userdata('name', $row->first_name.' '.$row->last_name);
+                $this->session->set_userdata('is_instructor', $row->is_instructor);
+                $this->session->set_flashdata('flash_message', get_phrase('welcome').' '.$row->first_name.' '.$row->last_name);
                 redirect(site_url('home'), 'refresh');
+            }else{
+                $this->session->set_flashdata('error_message',get_phrase('invalid_login_credentials'));
+                redirect(site_url('home/login'), 'refresh');
             }
+
         }else {
             $this->session->set_flashdata('error_message',get_phrase('invalid_login_credentials'));
             redirect(site_url('home/login'), 'refresh');
+        }
+    }
+
+    public function instructor_validate_login($from = "") {
+        $email = $this->input->post('email');
+        $password = $this->input->post('password');
+        $credential = array('email' => $email, 'password' => sha1($password), 'status' => 1);
+
+        // Checking login credential for admin
+        $query = $this->db->get_where('users', $credential);
+
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+            
+            // echo "Instrutor"; print_r($row); exit;
+            if ($row->role_id == 1) {
+                $this->session->set_userdata('user_id', $row->id);
+                $this->session->set_userdata('role_id', $row->role_id);
+                $this->session->set_userdata('role', get_user_role('user_role', $row->id));
+                $this->session->set_userdata('name', $row->first_name.' '.$row->last_name);
+                $this->session->set_userdata('is_instructor', $row->is_instructor);
+                $this->session->set_flashdata('flash_message', get_phrase('welcome').' '.$row->first_name.' '.$row->last_name);
+                $this->session->set_userdata('admin_login', '1');
+                redirect(site_url('admin/dashboard'), 'refresh');
+            }else if($row->role_id == 2 && $row->user_type==1){
+                $this->session->set_userdata('user_id', $row->id);
+                $this->session->set_userdata('role_id', $row->role_id);
+                $this->session->set_userdata('role', get_user_role('user_role', $row->id));
+                $this->session->set_userdata('name', $row->first_name.' '.$row->last_name);
+                $this->session->set_userdata('is_instructor', $row->is_instructor);
+                $this->session->set_flashdata('flash_message', get_phrase('welcome').' '.$row->first_name.' '.$row->last_name);
+                $this->session->set_userdata('user_login', '1');
+                $this->session->set_userdata('user_type', $row->user_type);
+                redirect(site_url('user'), 'refresh');
+            }else{
+                $this->session->set_flashdata('error_message',get_phrase('invalid_login_credentials'));
+                redirect(site_url('home/Instructorlogin'), 'refresh');
+            }
+        }else {
+            $this->session->set_flashdata('error_message',get_phrase('invalid_login_credentials'));
+            redirect(site_url('home/Instructorlogin'), 'refresh');
         }
     }
 
@@ -118,7 +170,7 @@ class Login extends CI_Controller {
     public function logout($from = "") {
         //destroy sessions of specific userdata. We've done this for not removing the cart session
         $this->session_destroy();
-        redirect(site_url('home/login'), 'refresh');
+        redirect(site_url('home'), 'refresh');
     }
 
     public function session_destroy() {
